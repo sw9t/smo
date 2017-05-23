@@ -7,8 +7,8 @@
     <ProjectGuid>{3E4E4029-3E6D-424D-B0B1-8F09AB3FE824}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Smo</RootNamespace>
-    <AssemblyName>Smo</AssemblyName>
+    <RootNamespace>SMO</RootNamespace>
+    <AssemblyName>smo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SSO.cs" />
+    <Compile Include="LimitedQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rejections.cs" />
+    <Compile Include="UnlimitedQuery.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
