@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,9 +77,11 @@
             this.S_lbl = new System.Windows.Forms.Label();
             this.AddChannelBtn = new System.Windows.Forms.Button();
             this.AddRChannelsBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +93,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -173,6 +176,7 @@
             // 
             this.DataInputGB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.DataInputGB.BackColor = System.Drawing.Color.Transparent;
             this.DataInputGB.Location = new System.Drawing.Point(12, 67);
             this.DataInputGB.Name = "DataInputGB";
             this.DataInputGB.Size = new System.Drawing.Size(200, 406);
@@ -197,6 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 13);
@@ -207,10 +212,11 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.SysStatesLV);
             this.groupBox1.Location = new System.Drawing.Point(218, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 250);
+            this.groupBox1.Size = new System.Drawing.Size(398, 250);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Возможные состояния системы";
@@ -230,7 +236,7 @@
             this.SysStatesLV.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.SysStatesLV.Location = new System.Drawing.Point(6, 19);
             this.SysStatesLV.Name = "SysStatesLV";
-            this.SysStatesLV.Size = new System.Drawing.Size(258, 225);
+            this.SysStatesLV.Size = new System.Drawing.Size(386, 225);
             this.SysStatesLV.TabIndex = 0;
             this.SysStatesLV.UseCompatibleStateImageBehavior = false;
             this.SysStatesLV.View = System.Windows.Forms.View.Details;
@@ -243,12 +249,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Занято";
-            this.columnHeader2.Width = 72;
+            this.columnHeader2.Width = 113;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Свободно";
-            this.columnHeader3.Width = 94;
+            this.columnHeader3.Width = 179;
             // 
             // SolveBtn
             // 
@@ -277,10 +283,11 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.SysProbabilitesLV);
-            this.groupBox2.Location = new System.Drawing.Point(502, 28);
+            this.groupBox2.Location = new System.Drawing.Point(622, 28);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 250);
+            this.groupBox2.Size = new System.Drawing.Size(350, 250);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Вероятности состояний СМО";
@@ -299,7 +306,7 @@
             this.SysProbabilitesLV.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.SysProbabilitesLV.Location = new System.Drawing.Point(6, 19);
             this.SysProbabilitesLV.Name = "SysProbabilitesLV";
-            this.SysProbabilitesLV.Size = new System.Drawing.Size(258, 225);
+            this.SysProbabilitesLV.Size = new System.Drawing.Size(338, 225);
             this.SysProbabilitesLV.TabIndex = 0;
             this.SysProbabilitesLV.UseCompatibleStateImageBehavior = false;
             this.SysProbabilitesLV.View = System.Windows.Forms.View.Details;
@@ -312,7 +319,7 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Значение";
-            this.columnHeader6.Width = 194;
+            this.columnHeader6.Width = 277;
             // 
             // label2
             // 
@@ -589,13 +596,25 @@
             this.AddRChannelsBtn.Visible = false;
             this.AddRChannelsBtn.Click += new System.EventHandler(this.AddChannelBtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::SMO_UI.Properties.Resources.daemon;
+            this.pictureBox1.Location = new System.Drawing.Point(792, 370);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.SolveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SMO_UI.Properties.Resources.bg;
             this.CancelButton = this.ResetBtn;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AddRChannelsBtn);
             this.Controls.Add(this.AddChannelBtn);
             this.Controls.Add(this.S);
@@ -628,14 +647,19 @@
             this.Controls.Add(this.TypeSelectCB);
             this.Controls.Add(this.DataInputGB);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "MainForm";
             this.Text = "Программа для решения задач с системами массового обслуживания (СМО)";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,5 +715,6 @@
         private System.Windows.Forms.ToolStripMenuItem сМОСНеограниченнойОчередьюToolStripMenuItem;
         private System.Windows.Forms.Button AddChannelBtn;
         private System.Windows.Forms.Button AddRChannelsBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

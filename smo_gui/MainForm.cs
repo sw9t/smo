@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using SMO;
 
@@ -162,23 +157,25 @@ namespace SMO_UI
                 SysProbabilitesLV.Items.Add(new ListViewItem("P" + i) { SubItems = { Pi[i].ToString() } });
             }
             p_otk.Text = Rejections.get_p_otkaza(Pi, channels).ToString();
-            p_obs.Text = Rejections.get_p_obslujivania(double.Parse(p_otk.Text)).ToString() + " = " +
+            p_obs.Text = Rejections.get_p_obslujivania(double.Parse(p_otk.Text)).ToString() + " ≈ " +
                 Math.Round(Rejections.get_p_obslujivania(double.Parse(p_otk.Text)) * 100) + "%";
             if (Math.Round(Rejections.get_p_obslujivania(double.Parse(p_otk.Text)) * 100) < percents)
             {
-                p_obs.ForeColor = Color.Red;
+                p_obs.ForeColor = Color.DarkRed;
                 AddChannelBtn.Visible = true;
             }
             else
             {
-                p_obs.ForeColor = Color.Green;
+                p_obs.ForeColor = Color.Lime;
                 AddChannelBtn.Visible = false;
             }
             A.Text = Rejections.get_A(lambda, Rejections.get_p_obslujivania(double.Parse(p_otk.Text))).ToString();
             nz.Text = Rejections.get_n_zaneatih(double.Parse(A.Text), t).ToString();
             ns.Text = Rejections.get_n_svobodnih(channels, double.Parse(nz.Text)).ToString();
-            kz.Text = Rejections.get_k_zaneatih(channels, double.Parse(nz.Text)).ToString();
-            kpr.Text = Rejections.get_k_prostoia(double.Parse(kz.Text)).ToString();
+            kz.Text = Rejections.get_k_zaneatih(channels, double.Parse(nz.Text)) + " ≈ " +
+                Math.Round(Rejections.get_k_zaneatih(channels, double.Parse(nz.Text)) * 100) + "%";
+            kpr.Text = Rejections.get_k_prostoia(Rejections.get_k_zaneatih(channels, double.Parse(nz.Text))) + " ≈ " +
+                Math.Round(Rejections.get_k_prostoia(Rejections.get_k_zaneatih(channels, double.Parse(nz.Text))) * 100) + "%";
             t_ozh.Text = "-";
             t_ozh.Enabled = t_ozh_lbl.Enabled = false;
             t_sist.Text = "-";
@@ -220,23 +217,27 @@ namespace SMO_UI
             }
 
             p_otk.Text = LimitedQuery.get_p_otkaza(Pi, n, m).ToString();
-            p_obs.Text = LimitedQuery.get_p_oblujivania(Pi, n, m).ToString();
-            A.Text = LimitedQuery.get_A(lambda, double.Parse(p_obs.Text)).ToString();
+            p_obs.Text = LimitedQuery.get_p_obslujivania(Pi, n, m) + " ≈ " +
+                Math.Round(LimitedQuery.get_p_obslujivania(Pi, n, m) * 100) + "%";
+            A.Text = LimitedQuery.get_A(lambda, LimitedQuery.get_p_obslujivania(Pi, n, m)).ToString();
             nz.Text = LimitedQuery.get_n_zaneatih(double.Parse(A.Text), t).ToString();
             ns.Text = LimitedQuery.get_n_svobodnih(n, double.Parse(nz.Text)).ToString();
-            kz.Text = LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text)).ToString();
-            kpr.Text = LimitedQuery.get_k_prostoia(double.Parse(kz.Text)).ToString();
+            kz.Text = LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text)) + " ≈ " +
+                Math.Round(LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text)) * 100) + "%";
+            kpr.Text = LimitedQuery.get_k_prostoia(LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text))) + " ≈ " +
+                Math.Round(LimitedQuery.get_k_prostoia(LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text))) * 100) + "%";
             r.Text = LimitedQuery.get_r(Pi, n, m, ro).ToString();
             t_ozh.Text = LimitedQuery.get_t_oj(double.Parse(r.Text), lambda).ToString();
-            t_sist.Text = LimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t, double.Parse(p_obs.Text)).ToString();
-            if (Math.Round(LimitedQuery.get_p_oblujivania(Pi, n, m) * 100) < percents)
+            t_sist.Text = LimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t, 
+                LimitedQuery.get_p_obslujivania(Pi, n, m)).ToString();
+            if (Math.Round(LimitedQuery.get_p_obslujivania(Pi, n, m) * 100) < percents)
             {
-                p_obs.ForeColor = Color.Red;
+                p_obs.ForeColor = Color.DarkRed;
                 AddChannelBtn.Visible = true;
             }
             else
             {
-                p_obs.ForeColor = Color.Green;
+                p_obs.ForeColor = Color.Lime;
                 AddChannelBtn.Visible = false;
             }
             S.Text = "-";
@@ -284,25 +285,25 @@ namespace SMO_UI
             {
                 SysProbabilitesLV.Items.Add(new ListViewItem("P" + i) { SubItems = { Pi[i].ToString() } });
             }
-            p_otk.Text = "0";
-            p_obs.Text = "1";
+            p_otk.Text = "0 = 0%";
+            p_obs.Text = "1 = 100%";
             A.Text = lambda.ToString();
             double n_z = Math.Round(ro);
             nz.Text = ro.ToString() + " ≈ " + n_z;
             ns.Text = (channels - n_z).ToString();
-            kz.Text = (ro / channels).ToString();
-            kpr.Text = (1 - ro / channels).ToString();
+            kz.Text = (ro / channels).ToString() + " ≈ " + Math.Round((ro / channels) * 100) + "%";
+            kpr.Text = (1 - ro / channels).ToString() + " ≈ " + Math.Round((1 - ro / channels) * 100) + "%";
             t_ozh.Text = UnlimitedQuery.get_t_oj(query, lambda).ToString();
             t_sist.Text = UnlimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t).ToString();
             r.Text = UnlimitedQuery.get_r(Pi, channels, ro).ToString();
             if (Math.Round(UnlimitedQuery.get_r(Pi, channels, ro)) > query)
             {
-                r.ForeColor = Color.Red;
+                r.ForeColor = Color.DarkRed;
                 AddRChannelsBtn.Visible = true;
             }
             else
             {
-                r.ForeColor = Color.Green;
+                r.ForeColor = Color.Lime;
                 AddRChannelsBtn.Visible = false;
             }
             S.Text = "-";
@@ -315,10 +316,10 @@ namespace SMO_UI
         {
             SysStatesLV.Items.Clear();
             SysProbabilitesLV.Items.Clear();
-            t_ozh_lbl.Enabled = t_ozh.Enabled = true;
-            t_sist_lbl.Enabled = t_sist_lbl.Enabled = true;
-            r_lbl.Enabled = r.Enabled = true;
-            S_lbl.Enabled = S.Enabled = true;
+            p_obs.ForeColor = r.ForeColor = SystemColors.ControlText;
+            t_ozh_lbl.Enabled = t_ozh.Enabled = t_sist_lbl.Enabled = t_sist_lbl.Enabled = 
+            r_lbl.Enabled = r.Enabled =  S_lbl.Enabled = S.Enabled = true;
+            AddChannelBtn.Visible = AddRChannelsBtn.Visible = false;
             switch (TypeSelectCB.SelectedIndex)
             {
                 case 0: SolveRejections(); break;
@@ -362,8 +363,8 @@ namespace SMO_UI
             if (e.KeyChar == '.') e.KeyChar = ',';
             if (!Char.IsDigit(e.KeyChar)) e.Handled = true;
             if (e.KeyChar == ',' || e.KeyChar == '-' || e.KeyChar == 8) e.Handled = false;
-            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(',')) e.Handled = true;
-            if (e.KeyChar == '-' && (sender as TextBox).Text.Contains('-')) e.Handled = true;
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(",")) e.Handled = true;
+            if (e.KeyChar == '-' && (sender as TextBox).Text.Contains("-")) e.Handled = true;
         }
         private void Check_CheckedChanged(object sender, EventArgs e)
         {

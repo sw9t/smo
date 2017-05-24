@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SMO
 {
@@ -36,6 +33,10 @@ namespace SMO
             {
                 temp += Math.Pow(ro, i) / factorial(i);
             }
+            for (int i = n_kanalov+1,j=1; i <= m_kanalov+n_kanalov; i++,j++)
+            {
+                temp += Math.Pow(ro, i) / (factorial((int)n_kanalov) * Math.Pow(n_kanalov, j));
+            }
             array_P_i[0] = 1 / temp;
             for (int i = 1; i <= n_kanalov; i++)
             {
@@ -56,11 +57,11 @@ namespace SMO
             }
             return r;
         }
-        public static double get_p_oblujivania(double[] Pi, int n_kanalov, int m_kanalov)
+        public static double get_p_otkaza(double[] Pi, int n_kanalov, int m_kanalov)
         {
             return Pi[n_kanalov + m_kanalov];
         }
-        public static double get_p_otkaza(double[] Pi, int n_kanalov, int m_kanalov)
+        public static double get_p_obslujivania(double[] Pi, int n_kanalov, int m_kanalov)
         {
             return 1 - Pi[n_kanalov + m_kanalov];
         }
