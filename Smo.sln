@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smo", "Smo\Smo.csproj", "{3E4E4029-3E6D-424D-B0B1-8F09AB3FE824}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO", "SMO\SMO.csproj", "{3E4E4029-3E6D-424D-B0B1-8F09AB3FE824}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smo_gui", "smo_gui\smo_gui.csproj", "{77459BF9-97FC-4261-850E-9F4768519A09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO_UI", "SMO_UI\SMO_UI.csproj", "{77459BF9-97FC-4261-850E-9F4768519A09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
