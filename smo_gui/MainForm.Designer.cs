@@ -655,6 +655,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "MainForm";
             this.Text = "Программа для решения задач с системами массового обслуживания (СМО)";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

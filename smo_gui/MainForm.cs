@@ -255,7 +255,7 @@ namespace SMO_UI
                 lambda = double.Parse(lambda_TB.Text);
                 t = double.Parse(t_TB.Text);
                 ro = UnlimitedQuery.get_ro(t, lambda);
-                if ((ro / channels) > 1)
+                if ((ro / channels) >= 1)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -293,7 +293,7 @@ namespace SMO_UI
             ns.Text = (channels - n_z).ToString();
             kz.Text = (ro / channels).ToString() + " ≈ " + Math.Round((ro / channels) * 100) + "%";
             kpr.Text = (1 - ro / channels).ToString() + " ≈ " + Math.Round((1 - ro / channels) * 100) + "%";
-            t_ozh.Text = UnlimitedQuery.get_t_oj(query, lambda).ToString();
+            t_ozh.Text = UnlimitedQuery.get_t_oj(UnlimitedQuery.get_r(Pi, channels, ro), lambda).ToString();
             t_sist.Text = UnlimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t).ToString();
             r.Text = UnlimitedQuery.get_r(Pi, channels, ro).ToString();
             if (Math.Round(UnlimitedQuery.get_r(Pi, channels, ro)) > query)
@@ -411,6 +411,11 @@ namespace SMO_UI
             {
                 return;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
