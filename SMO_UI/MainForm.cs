@@ -85,7 +85,7 @@ namespace SMO_UI
             DataInputGB.Controls.Add(ChannelsNUD);
 
             DataInputGB.Controls.Add(new Label { Location = new Point(5, 195), Text = "Количество мест в очереди (m):", Size = new Size(190, 15) });
-            g_TB = new TextBox { Location = new Point(5, 210), Size = new Size(190, 25), Enabled = false }; 
+            g_TB = new TextBox { Location = new Point(5, 210), Size = new Size(190, 25), Enabled = false };
             DataInputGB.Controls.Add(g_TB);
 
             DataInputGB.Controls.Add(new Label { Location = new Point(5, 240), Text = "Необход. процент обслуживания:", Size = new Size(190, 15) });
@@ -228,7 +228,7 @@ namespace SMO_UI
                 Math.Round(LimitedQuery.get_k_prostoia(LimitedQuery.get_k_zaneatih(n, double.Parse(nz.Text))) * 100) + "%";
             r.Text = LimitedQuery.get_r(Pi, n, m, ro).ToString();
             t_ozh.Text = LimitedQuery.get_t_oj(double.Parse(r.Text), lambda).ToString();
-            t_sist.Text = LimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t, 
+            t_sist.Text = LimitedQuery.get_t_sist(double.Parse(t_ozh.Text), t,
                 LimitedQuery.get_p_obslujivania(Pi, n, m)).ToString();
             if (Math.Round(LimitedQuery.get_p_obslujivania(Pi, n, m) * 100) < percents)
             {
@@ -317,8 +317,8 @@ namespace SMO_UI
             SysStatesLV.Items.Clear();
             SysProbabilitesLV.Items.Clear();
             p_obs.ForeColor = r.ForeColor = SystemColors.ControlText;
-            t_ozh_lbl.Enabled = t_ozh.Enabled = t_sist_lbl.Enabled = t_sist_lbl.Enabled = 
-            r_lbl.Enabled = r.Enabled =  S_lbl.Enabled = S.Enabled = true;
+            t_ozh_lbl.Enabled = t_ozh.Enabled = t_sist_lbl.Enabled = t_sist_lbl.Enabled =
+            r_lbl.Enabled = r.Enabled = S_lbl.Enabled = S.Enabled = true;
             AddChannelBtn.Visible = AddRChannelsBtn.Visible = false;
             switch (TypeSelectCB.SelectedIndex)
             {
@@ -332,12 +332,12 @@ namespace SMO_UI
         {
             DataInputGB.Controls.Clear();
             SysStatesLV.Items.Clear();
-            SysProbabilitesLV.Items.Clear(); 
-            p_otk.Text = p_obs.Text = A.Text = nz.Text = ns.Text = kz.Text = 
+            SysProbabilitesLV.Items.Clear();
+            p_otk.Text = p_obs.Text = A.Text = nz.Text = ns.Text = kz.Text =
                 kpr.Text = r.Text = t_ozh.Text = t_sist.Text = S.Text = "";
-            S.Enabled = S_lbl.Enabled = 
-            r.Enabled = r_lbl.Enabled = 
-            t_ozh.Enabled = t_ozh_lbl.Enabled = 
+            S.Enabled = S_lbl.Enabled =
+            r.Enabled = r_lbl.Enabled =
+            t_ozh.Enabled = t_ozh_lbl.Enabled =
             t_sist.Enabled = t_sist_lbl.Enabled = true;
             p_obs.ForeColor = r.ForeColor = SystemColors.ControlText;
             AddChannelBtn.Visible = AddRChannelsBtn.Visible = false;
@@ -417,13 +417,13 @@ namespace SMO_UI
         {
 
         }
-        
+
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Программный пакет помогает в решении задач систем массового обслуживания (СМО), 
-в частности, СМО с отказами, с ограниченной очередью и с неограниченной очередью.\n
-Разработчик: студентка группы ФМ13ДР62ПФ (403) Штыра Татьяна Сергеевна\n
-Научный руководитель: Спиридонова Г.В.", 
+            MessageBox.Show("Программный пакет помогает в решении задач \nсистем массового обслуживания (СМО),\n" +
+                "в частности, СМО с отказами, с ограниченной \nочередью и с неограниченной очередью.\n" +
+                "Разработчик: студентка группы ФМ13ДР62ПФ (403) \nШтыра Татьяна Сергеевна\n" +
+                "Научный руководитель: Спиридонова Г.В.",
                 "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
