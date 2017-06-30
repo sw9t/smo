@@ -37,7 +37,6 @@
             this.сМОСОграниченнойОчередьюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сМОСНеограниченнойОчередьюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вызовСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DataInputGB = new System.Windows.Forms.GroupBox();
             this.TypeSelectCB = new System.Windows.Forms.ComboBox();
@@ -152,25 +151,18 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вызовСправкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // вызовСправкиToolStripMenuItem
-            // 
-            this.вызовСправкиToolStripMenuItem.Name = "вызовСправкиToolStripMenuItem";
-            this.вызовСправкиToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.вызовСправкиToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.вызовСправкиToolStripMenuItem.Text = "Вызов справки";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.справкаToolStripMenuItem.Text = "Информация";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // DataInputGB
             // 
@@ -605,6 +597,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(180, 180);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // MainForm
             // 
@@ -704,7 +697,6 @@
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вызовСправкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem задачаToolStripMenuItem;
         private System.Windows.Forms.Label kpr;
